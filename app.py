@@ -1,3 +1,4 @@
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -30,6 +31,17 @@ eco_tips = [
     "Take public transportation or bike instead of driving."
 ]
 
+SUSTAINABLE_DEVELOPMENT_GOALS = [
+"1) No Poverty"
+"2) Zero Hunger"
+"3) Good Health and Well-being"
+"4) Quality Education"
+"5) Gender Equality"
+"6) Clean Water and Sanitation"
+"7) Affordable and Clean Energy"
+
+]
+
 inspiring_stories = [
     "A small village in India transformed its landscape by planting over 1 million trees!",
     "A 16-year-old in Sweden started a global youth movement to demand climate action!",
@@ -56,6 +68,95 @@ eco_missions = [
 
 # Streamlit App Configuration
 st.set_page_config(page_title="EcoBuddy", page_icon="🧚‍♀️")
+
+st.markdown("""
+    <style>
+        .stApp {
+    background: url("https://plus.unsplash.com/premium_photo-1673292293042-cafd9c8a3ab3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #e8f5e9;
+    font-family: 'Segoe UI', sans-serif;
+            .stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 20, 10, 0.6);
+    z-index: -1;
+}
+
+}
+
+        }
+
+        .stSidebar {
+            background-color: #142f22 !important;
+            color: #ffffff;
+        }
+
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .stTextInput > div > input {
+            background-color: #1f3d2c;
+            color: #ffffff;
+            border: 1px solid #4caf50;
+        }
+
+        .stButton > button {
+            background-color: #4caf50;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;.stButton > button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 0.6rem 1.2rem;
+}
+
+.stButton > button:hover {
+    background-color: #66BB6A;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+        }
+
+
+        }
+
+        .stInfo, .stSuccess, .stWarning, .stError {
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #a5d6a7;
+        }
+
+        .css-1v3fvcr {
+            color: #e0f2f1;
+        }
+
+        a {
+            color: #81d4fa;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
+
+
 st.title("🧚‍♀️ EcoBuddy: Your Climate Action Fairy")
 
 # Sidebar with myth busters
@@ -92,6 +193,10 @@ for role, text in st.session_state['chat_history']:
 # Daily Tip
 st.subheader("🌱 Daily Eco Tip")
 st.info(random.choice(eco_tips))
+
+st.subheader("🌍 UN Sustainable Development Goals")
+for goal in SUSTAINABLE_DEVELOPMENT_GOALS:
+    st.write(f"✅ {goal}")
 
 # Inspiring Story
 st.subheader("💡 Climate Hero Story")
